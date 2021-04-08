@@ -167,8 +167,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7616fab46da9c504787e85782cb1be68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _closeOnReturn: 0
+  diableOnStart: 0
+  _doNotNotifyOnEachCharacter: 1
+  _clearInputFieldOnEndEdit: 0
+  _triggerEventOnClose: 1
   currentInputField: {fileID: 0}
-  silentAdd: 0
+  blanker: {fileID: 0}
+  OnEndEdit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnKeyboardActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5335600036520285605}
+        m_TargetAssemblyTypeName: Z.Keyboard.KeyboardLongPressObjectReferences, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  currentText: 
 --- !u!114 &6132849741071949003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,8 +413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 5.100006}
-  m_SizeDelta: {x: 400, y: 29.092102}
+  m_AnchoredPosition: {x: 37.44, y: 5.100006}
+  m_SizeDelta: {x: 595.82, y: 29.0921}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &7866346805859222055
 CanvasRenderer:
@@ -799,7 +826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6132666954775104151
 RectTransform:
   m_ObjectHideFlags: 0
@@ -817,8 +844,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 4.549988}
-  m_SizeDelta: {x: 270, y: 9.100006}
+  m_AnchoredPosition: {x: 37.439476, y: 4.549988}
+  m_SizeDelta: {x: 595.824, y: 9.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5558096485829808523
 CanvasRenderer:
@@ -1002,7 +1029,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 47}
-  m_SizeDelta: {x: 174, y: 124}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: -0.05}
 --- !u!222 &1399719503495345621
 CanvasRenderer:
@@ -1094,10 +1121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f36c7298c3ec7b4a8f258edad36d2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overrideLetter: 1
+  keyCode: 13
   _letter: 
-  overrideLetter: 0
-  keyCode: 0
-  applyName: 0
   makeUpperCase: 0
   makeLowerCase: 0
 --- !u!114 &4184401826661449223
@@ -1164,7 +1190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -63.368088, y: -729.9699}
+  m_AnchoredPosition: {x: -63.368164, y: -729.9699}
   m_SizeDelta: {x: 670.5493, y: 1379.8699}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &2179517612417368802
@@ -1624,6 +1650,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7480946521273715739}
     m_Modifications:
+    - target: {fileID: 413238172649547799, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de0384b26e29c4b40bf956b347dbe66e, type: 3}
     - target: {fileID: 4957279049657630082, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
       propertyPath: m_Name
       value: Key N
@@ -2651,6 +2681,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1514253294166580877}
     m_Modifications:
+    - target: {fileID: 413238172649547799, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de0384b26e29c4b40bf956b347dbe66e, type: 3}
     - target: {fileID: 4957279049657630082, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
       propertyPath: m_Name
       value: Key U
@@ -3130,7 +3164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4957279049657630082, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
       propertyPath: m_Name
-      value: 'Key '
+      value: Key Return
       objectReference: {fileID: 0}
     - target: {fileID: 4957279049657630082, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
       propertyPath: m_IsActive
@@ -3222,7 +3256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6089695238529642367, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6089695238529642367, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -3499,6 +3533,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5038818198929825883}
     m_Modifications:
+    - target: {fileID: 413238172649547799, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de0384b26e29c4b40bf956b347dbe66e, type: 3}
     - target: {fileID: 4957279049657630082, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
       propertyPath: m_Name
       value: Key A
@@ -3617,6 +3655,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5038818198929825883}
     m_Modifications:
+    - target: {fileID: 413238172649547799, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de0384b26e29c4b40bf956b347dbe66e, type: 3}
     - target: {fileID: 4957279049657630082, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
       propertyPath: m_Name
       value: Key L
@@ -4320,6 +4362,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1514253294166580877}
     m_Modifications:
+    - target: {fileID: 413238172649547799, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de0384b26e29c4b40bf956b347dbe66e, type: 3}
     - target: {fileID: 4957279049657630082, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
       propertyPath: m_Name
       value: Key E
@@ -5526,6 +5572,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5038818198929825883}
     m_Modifications:
+    - target: {fileID: 413238172649547799, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de0384b26e29c4b40bf956b347dbe66e, type: 3}
     - target: {fileID: 4957279049657630082, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
       propertyPath: m_Name
       value: Key S
@@ -5870,6 +5920,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7480946521273715739}
     m_Modifications:
+    - target: {fileID: 413238172649547799, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de0384b26e29c4b40bf956b347dbe66e, type: 3}
     - target: {fileID: 4957279049657630082, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
       propertyPath: m_Name
       value: Key Z
@@ -6207,6 +6261,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1514253294166580877}
     m_Modifications:
+    - target: {fileID: 413238172649547799, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de0384b26e29c4b40bf956b347dbe66e, type: 3}
     - target: {fileID: 4957279049657630082, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
       propertyPath: m_Name
       value: Key O
@@ -7360,6 +7418,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7480946521273715739}
     m_Modifications:
+    - target: {fileID: 413238172649547799, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de0384b26e29c4b40bf956b347dbe66e, type: 3}
     - target: {fileID: 4957279049657630082, guid: 6a0ba7202de0b314bb3f1c3271f1103a, type: 3}
       propertyPath: m_Name
       value: Key C

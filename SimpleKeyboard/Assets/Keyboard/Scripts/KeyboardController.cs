@@ -22,22 +22,23 @@ namespace Z.Keyboard
         public Button blanker;
         public StringEvent OnEndEdit;
         public StringEvent OnValueChanged;
+        public BoolEvent OnKeyboardActivated;
         public string currentText;
         public void OpenForInputField(InputField newInputField)
         {
             currentInputField = newInputField;
             currentText = currentInputField.text;
             gameObject.SetActive(true);
+            OnKeyboardActivated.Invoke(true);
         }
         public void Close()
         {
             gameObject.SetActive(false);
             if (_triggerEventOnClose)
             {
-
                 OnEndEdit.Invoke(currentText);
-                Debug.Log("end edit ");
             }
+            OnKeyboardActivated.Invoke(false);
 
         }
         public void AddLetter(string letter)

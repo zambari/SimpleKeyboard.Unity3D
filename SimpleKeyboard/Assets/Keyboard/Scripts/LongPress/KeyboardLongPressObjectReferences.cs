@@ -19,14 +19,14 @@ namespace Z.Keyboard
             letterTemplate = GetComponentInChildren<KeyboardButtonLetter>();
 
         }
+
         public void Show()
         {
             gameObject.SetActive(true);
-
         }
         public void Hide()
         {
-            Debug.Log("hiding");
+            // Debug.Log("hiding");
             gameObject.SetActive(false);
         }
         void DestroyOtherKeys()
@@ -46,7 +46,6 @@ namespace Z.Keyboard
             else
             {
 
-                Debug.Log("added hide callback");
                 if (Time.time < 1)
                     Hide();
                 if (horizontalLayoutTransform == null)

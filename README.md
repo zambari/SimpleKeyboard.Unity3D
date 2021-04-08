@@ -1,5 +1,7 @@
 ## Simple Keyboard
 
+![Keyboard](docs/Keyboard.png)
+
 
 Add KeyboardInputfieldHelper to your inputfields, it tracks inputfield fodus, and lets SimpleKeyboard know we want to input text.
 
@@ -15,3 +17,4 @@ You can use Prefabs for Row/Key together with the cretor to seed your keyboard, 
 If you open the keyboard with OpenForInputField, it will control the inputfield. You can also use UnityEvents provided for OnValueChanged and OnEndEdit
 
 There is also support for 'long press to open regional variants of the character' functinality, see demo scene for details;
+
