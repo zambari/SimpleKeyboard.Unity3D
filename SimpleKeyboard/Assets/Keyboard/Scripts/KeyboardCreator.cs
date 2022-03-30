@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor.Events;
 using UnityEngine.Events;
 using System;
 #if UNITY_EDITOR
 using UnityEditor;
-
+using UnityEditor.Events;
 #endif
 namespace Z.Keyboard
 {
@@ -66,7 +65,7 @@ namespace Z.Keyboard
         List<HorizontalLayoutGroup> rows = new List<HorizontalLayoutGroup>();
         public KeyboardController keyboardController { get { if (_keyboardController == null) _keyboardController = GetComponent<KeyboardController>(); return _keyboardController; } }
         private KeyboardController _keyboardController;
-        public bool addBlanker=true;
+        public bool addBlanker = true;
         public UnityAction closeAction;
         void OnValidate()
         {
@@ -123,6 +122,7 @@ namespace Z.Keyboard
         }
         void AddBlankerObject()
         {
+#if UNITY_EDITOR
             if (keyboardController.blanker != null)
             {
                 Debug.Log("this object already has blanker");
@@ -148,7 +148,7 @@ namespace Z.Keyboard
             UnityAction action = new UnityAction(keyboardController.Close);
             UnityEventTools.AddPersistentListener(button.onClick, action);
             keyboardController.blanker = button;
-
+#endif
         }
         void DestroyChildrenRows()
         {
@@ -162,7 +162,7 @@ namespace Z.Keyboard
 #if UNITY_EDITOR
                     Undo.DestroyObjectImmediate(thischildTransform.gameObject);
 #else
-                    GameObject.DestroyObjectImmediate(thischildTransform.gameObject);
+                    GameObject.DestroyImmediate(thischildTransform.gameObject);
 #endif
 
                     deleted++;
@@ -179,7 +179,7 @@ namespace Z.Keyboard
 #if UNITY_EDITOR
                             Undo.DestroyObjectImmediate(thisLetter.gameObject);
 #else
-                    GameObject.DestroyObjectImmediate(thisLetter.gameObject);
+                    GameObject.DestroyImmediate(thisLetter.gameObject);
 #endif
 
                             deleted++;
@@ -189,16 +189,6 @@ namespace Z.Keyboard
             }
             Debug.Log(deleted == 0 ? "Nothing Deleted " : $"Deleted {deleted} rows and buttons");
             rows = new List<HorizontalLayoutGroup>();
-        }
-        void CheckIfPrefab()
-        {
-            if (letterButtonTemplate)
-            {
-                if (PrefabUtility.GetPrefabInstanceStatus(letterButtonTemplate.gameObject) != PrefabInstanceStatus.Connected)
-                {
-                    Debug.Log("Consider making your button a prefab");
-                }
-            }
         }
 
 
@@ -365,6 +355,7 @@ namespace Z.Keyboard
         void RunCreatorWishlist()
         {
 
+#if UNITY_EDITOR
             if (removeTheCreator)
             {
                 Undo.DestroyObjectImmediate(this);
@@ -420,7 +411,10 @@ namespace Z.Keyboard
                     AddReturnAndBackspace();
             }
 
-            // thisLayout.childControlWidth=trowLayoutGroup
+            // thisLayout.childControlWidth=trowLayoutGroup\
+#else
+    Debug.Log("Editor only, sorry");
+#endif
         }
 
     }

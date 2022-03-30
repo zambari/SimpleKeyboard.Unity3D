@@ -24,6 +24,18 @@ namespace Z.Keyboard
         public StringEvent OnValueChanged;
         public BoolEvent OnKeyboardActivated;
         public string currentText;
+        public void Clear()
+        {
+            currentText = "";
+            OnValueChanged.Invoke(currentText);
+            if (currentInputField)
+            {
+                if (doNotNotifyOnEachCharacter)
+                    currentInputField.SetTextWithoutNotify(currentText);
+                else
+                    currentInputField.text = currentText;
+            }
+        }
         public void OpenForInputField(InputField newInputField)
         {
             currentInputField = newInputField;
